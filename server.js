@@ -1,14 +1,15 @@
-const http = require('http');
+const express = require('express'); // Commonjs
+// import express from 'express'; // es modules
 
-const hostname = '127.0.0.1'; //localhost - quy định trong máy tính của chúng ta (có thể thay đổi từ 1 - 255 có thể test tại máy tính)
-const port = 3000; // Nơi chạy dự án (chọn từ 0 - 65355)
+const app = express(); // app express
+const hostname = '127.0.0.1'; // localhost - địa chỉ máy chủ local trên máy tính của bạn (có thể thay đổi từ 1-255 để test trên máy tính)
+const port = 3000; // Cổng chạy dự án (có thể chọn từ 0-65535)
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'Text/plan');
-    res.end('Hello World\n');
-});
+// Khai báo route
+app.get('/', (req, res) => {
+    res.send('Hello world')
+})
 
-server.listen(port, hostname, () => {
-    console.log(`server running at http:/${hostname}:${port}/`);
+app.listen(port, hostname, () => {
+    console.log(`Máy chủ đang chạy tại http://${hostname}:${port}/`);
 });
