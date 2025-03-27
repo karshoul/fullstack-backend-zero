@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
     res.send('Hello world')
 })
 
+app.get('/abc', (req, res) => {
+    res.send('Test')
+})
+
 app.listen(port, hostname, () => {
     console.log(`Máy chủ đang chạy tại http://${hostname}:${port}/`);
 });
