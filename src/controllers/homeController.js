@@ -1,3 +1,5 @@
+
+
 const getHomePage = (req, res) => {
     res.render('sample.ejs') // Gọi tới file sample.ejs trong thư mục views
 }
